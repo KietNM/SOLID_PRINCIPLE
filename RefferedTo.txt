@@ -1,31 +1,3 @@
-1) Job description for Developer 
-Description
-+ To co-ordinate with Technical Lead, PM in project technical matter.
-+ To make the detail design (include data model, application common, data migration, environment planning) based on the basic design.
-+ To implement web application based on the detail design and common application framework.
-+ To implement unit testing and unit test executing manually.
-
-Requirements
-Must to have:
-+ Have knowledge software development life cycle (waterfall).
-+ At least 2 years working experience in software development and have experienced about basic design, detail design, coding and unit testing.
-+ Familiar with Visual studio 2012 or above, source control SVN, IIS (7 and above), MS SQL server 2012 and above.
-+ At least 1 year working experience of .NET framework 4.5, Entity framework, ASP.NET MVC, Web API 
-+ At least 1 year working experience of HTML5 & CSS, Javascript, JSON, jQuery, Angular JS
-+ High level understanding of Auto Mapper, Autofac, SQL Server.
-+ Have knowledge about SOLID principle and design pattern such as IoC pattern, DI pattern... 
-+ English communication skill.
-+ Have knowledge about BI tool (Cognos tool is preferable).
-
-Nice to have:
-+ Have knowledge in bank is preferred.
-+ Have experience in Japanese company projects.
-Other requirements
-+ Proactive, can do attitude.
-+ High sense of organization and responsibility.
-+ Good interpersonal skill.
-+ Able to comprehend particular situations from broader perspectives.
-
 /// <summary>
 /// 1. Adventureworks2012 download at codeplex.
 /// Referred to https://msftdbprodsamples.codeplex.com/downloads/get/165399
