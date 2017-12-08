@@ -1,13 +1,9 @@
 ﻿using SOLID_PRINCIPLE.DATA;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOLID_PRINCIPLE.SERVICEs
 {
-    public interface IProductRepository
+    public interface IProductService
     {
         IEnumerable<Product> GetAll();
         Product GetById(int id);

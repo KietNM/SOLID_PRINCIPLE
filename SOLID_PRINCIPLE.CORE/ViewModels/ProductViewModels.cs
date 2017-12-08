@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SOLID_PRINCIPLE.CORE.ViewModels
+﻿namespace SOLID_PRINCIPLE.CORE.ViewModels
 {
-    class ProductViewModels
+    public class ProductViewModels
     {
     }
 }

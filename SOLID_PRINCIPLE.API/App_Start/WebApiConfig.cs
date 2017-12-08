@@ -11,7 +11,7 @@ namespace SOLID_PRINCIPLE.API
         {
             // Web API configuration and services
             var container = new UnityContainer();
-            container.RegisterType<IProductRepository, ProductRepository>(new HierarchicalLifetimeManager());
+            container.RegisterType<IProductService, ProductService>(new HierarchicalLifetimeManager());
             config.DependencyResolver = new UnityResolver.UnityResolver(container);
            
             // Web API routes

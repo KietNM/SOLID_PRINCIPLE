@@ -2,12 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SOLID_PRINCIPLE.SERVICEs
 {
-    public class ProductRepository : IProductRepository
+    public class ProductService : IProductService
     {
         private AdventureWorks2012Entities db = new AdventureWorks2012Entities();
 

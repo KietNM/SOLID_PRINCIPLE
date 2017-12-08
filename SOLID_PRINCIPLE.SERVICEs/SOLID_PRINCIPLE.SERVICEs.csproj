@@ -49,8 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interface\IProductRepository.cs" />
-    <Compile Include="Implementation\ProductRepository.cs" />
+    <Compile Include="Implementation\CategoryService.cs" />
+    <Compile Include="Implementation\GadgetService.cs" />
+    <Compile Include="Interface\ICategoryService.cs" />
+    <Compile Include="Interface\IGadgetService.cs" />
+    <Compile Include="Interface\IProductService.cs" />
+    <Compile Include="Implementation\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

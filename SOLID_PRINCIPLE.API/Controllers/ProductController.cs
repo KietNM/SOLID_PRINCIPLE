@@ -1,30 +1,26 @@
 ﻿using SOLID_PRINCIPLE.DATA;
 using SOLID_PRINCIPLE.SERVICEs;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
 
 namespace SOLID_PRINCIPLE.API.Controllers
 {
     public class ProductController : ApiController
     {
-        private IProductRepository _repository;
-        public ProductController(IProductRepository repository)
+        private IProductService _service;
+        public ProductController(IProductService service)
         {
-            _repository = repository;
+            _service = service;
         }
 
         public IEnumerable<Product> Get()
         {
-            return _repository.GetAll();
+            return _service.GetAll();
         }
 
         public IHttpActionResult Get(int id)
         {
-            var product = _repository.GetById(id);
+            var product = _service.GetById(id);
             if (product == null)
             {
                 return NotFound();
