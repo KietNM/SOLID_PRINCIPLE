@@ -1,26 +1,64 @@
-﻿using System.Web.Mvc;
-
-namespace SOLID_PRINCIPLE.WEB.Controllers
+﻿namespace SOLID_PRINCIPLE.WEB.Controllers
 {
+    using AutoMapper;
+    using CORE.ViewModels;
+    using DATA.Models;
+    using SERVICEs.Interface;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Mvc;
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        private readonly ICategoryService categoryService;
+        private readonly IGadgetService gadgetService;
+
+        public HomeController(ICategoryService categoryService, IGadgetService gadgetService)
         {
-            return View();
+            this.categoryService = categoryService;
+            this.gadgetService = gadgetService;
         }
 
-        public ActionResult About()
+        // GET: Home
+        public ActionResult Index(string category = null)
         {
-            ViewBag.Message = "Your application description page.";
+            IEnumerable<CategoryViewModel> viewModelGadgets;
+            IEnumerable<Category> categories;
 
-            return View();
+            categories = categoryService.GetCategories(category).ToList();
+
+            viewModelGadgets = Mapper.Map<IEnumerable<Category>, IEnumerable<CategoryViewModel>>(categories);
+            return View(viewModelGadgets);
         }
 
-        public ActionResult Contact()
+        public ActionResult Filter(string category, string gadgetName)
         {
-            ViewBag.Message = "Your contact page.";
+            IEnumerable<GadgetViewModel> viewModelGadgets;
+            IEnumerable<Gadget> gadgets;
 
-            return View();
+            gadgets = gadgetService.GetCategoryGadgets(category, gadgetName);
+
+            viewModelGadgets = Mapper.Map<IEnumerable<Gadget>, IEnumerable<GadgetViewModel>>(gadgets);
+
+            return View(viewModelGadgets);
+        }
+
+        [HttpPost]
+        public ActionResult Create(GadgetFormViewModel newGadget)
+        {
+            if (newGadget != null && newGadget.File != null)
+            {
+                var gadget = Mapper.Map<GadgetFormViewModel, Gadget>(newGadget);
+                gadgetService.CreateGadget(gadget);
+
+                string gadgetPicture = System.IO.Path.GetFileName(newGadget.File.FileName);
+                string path = System.IO.Path.Combine(Server.MapPath("~/images/"), gadgetPicture);
+                newGadget.File.SaveAs(path);
+
+                gadgetService.SaveGadget();
+            }
+
+            var category = categoryService.GetCategory(newGadget.GadgetCategory);
+            return RedirectToAction("Index", new { category = category.Name });
         }
     }
 }

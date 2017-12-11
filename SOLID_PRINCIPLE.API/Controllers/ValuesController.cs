@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Web.Http;
-
-namespace SOLID_PRINCIPLE.API.Controllers
+﻿namespace SOLID_PRINCIPLE.API.Controllers
 {
+    using System.Collections.Generic;
+    using System.Web.Http;
     public class ValuesController : ApiController
     {
         // GET api/values

@@ -4748,7 +4748,9 @@ jQuery.event = {
 	add: function( elem, types, handler, data, selector ) {
 		var tmp, events, t, handleObjIn,
 			special, eventHandle, handleObj,
-			handlers, type, namespaces, origType,
+			handlers, type, 
+
+, origType,
 			elemData = jQuery._data( elem );
 
 		// Don't attach events to noData or text/comment nodes (but allow plain objects)

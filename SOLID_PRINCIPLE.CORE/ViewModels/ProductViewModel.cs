@@ -1,6 +1,6 @@
 ﻿namespace SOLID_PRINCIPLE.CORE.ViewModels
 {
-    public class ProductViewModels
+    public class ProductViewModel
     {
     }
 }

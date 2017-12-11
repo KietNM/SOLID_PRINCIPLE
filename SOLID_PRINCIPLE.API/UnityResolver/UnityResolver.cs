@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Web.Http.Dependencies;
-using Unity;
-using Unity.Exceptions;
-namespace SOLID_PRINCIPLE.API.UnityResolver
+﻿namespace SOLID_PRINCIPLE.API.UnityResolver
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Web.Http.Dependencies;
+    using Unity;
+    using Unity.Exceptions;
     public class UnityResolver : IDependencyResolver
     {
         protected IUnityContainer container;

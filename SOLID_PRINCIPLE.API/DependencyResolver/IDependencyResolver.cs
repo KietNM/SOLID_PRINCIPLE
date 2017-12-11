@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http.Dependencies;
-
-namespace SOLID_PRINCIPLE.API.DependencyResolver
+﻿namespace SOLID_PRINCIPLE.API.DependencyResolver
 {
+    using System;
     public interface IDependencyResolver : IDependencyScope, IDisposable
     {
         IDependencyScope BeginScope();

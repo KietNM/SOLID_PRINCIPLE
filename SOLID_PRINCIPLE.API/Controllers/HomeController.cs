@@ -1,7 +1,6 @@
-﻿using System.Web.Mvc;
-
-namespace SOLID_PRINCIPLE.API.Controllers
+﻿namespace SOLID_PRINCIPLE.API.Controllers
 {
+    using System.Web.Mvc;
     public class HomeController : Controller
     {
         public ActionResult Index()

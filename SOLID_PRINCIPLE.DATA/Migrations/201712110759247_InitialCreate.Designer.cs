@@ -7,13 +7,13 @@ namespace SOLID_PRINCIPLE.DATA.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class TheSecondMigration : IMigrationMetadata
+    public sealed partial class InitialCreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(TheSecondMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712110659030_TheSecondMigration"; }
+            get { return "201712110759247_InitialCreate"; }
         }
         
         string IMigrationMetadata.Source

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace SOLID_PRINCIPLE.API.DependencyResolver
+﻿namespace SOLID_PRINCIPLE.API.DependencyResolver
 {
+    using System;
+    using System.Collections.Generic;
     public interface IDependencyScope : IDisposable
     {
         object GetService(Type serviceType);

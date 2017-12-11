@@ -27,5 +27,12 @@
 /// For detailed https://msdn.microsoft.com/en-us/library/dn579398(v=vs.113).aspx
 /// </summary>
 
+/// <summary>
+/// 1. Code first migration commands for Entity Framework.
+/// For detailed http://www.mortenanderson.net/code-first-migrations-for-entity-framework
+/// </summary>
 
-
+/// <summary>
+/// 1. More than one migrations configuration type was found in the assembly.
+/// For detailed https://stackoverflow.com/questions/26067259/more-than-one-migrations-configuration-type-was-found-in-the-assembly-smsapp
+/// </summary>

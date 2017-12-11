@@ -1,7 +1,6 @@
-﻿using System.Web.Optimization;
-
-namespace SOLID_PRINCIPLE.WEB
+﻿namespace SOLID_PRINCIPLE.WEB
 {
+    using System.Web.Optimization;
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
@@ -25,6 +24,11 @@ namespace SOLID_PRINCIPLE.WEB
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bootstrap/js").Include(
+                      "~/js/bootstrap.js", "~/js/site.js"));
+
+            BundleTable.EnableOptimizations = true;
         }
     }
 }

@@ -1,8 +1,6 @@
-﻿using System.Web;
-using System.Web.Optimization;
-
-namespace SOLID_PRINCIPLE.API
+﻿namespace SOLID_PRINCIPLE.API
 {
+    using System.Web.Optimization;
     public class BundleConfig
     {
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862

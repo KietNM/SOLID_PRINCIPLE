@@ -1,10 +1,9 @@
-﻿using SOLID_PRINCIPLE.SERVICEs;
-using System.Web.Http;
-using Unity;
-using Unity.Lifetime;
-
-namespace SOLID_PRINCIPLE.API
+﻿namespace SOLID_PRINCIPLE.API
 {
+    using SERVICEs;
+    using System.Web.Http;
+    using Unity;
+    using Unity.Lifetime;
     public static class WebApiConfig
     {
         public static void Register(HttpConfiguration config)

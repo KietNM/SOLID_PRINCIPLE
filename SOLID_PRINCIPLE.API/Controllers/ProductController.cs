@@ -1,10 +1,9 @@
-﻿using SOLID_PRINCIPLE.DATA;
-using SOLID_PRINCIPLE.SERVICEs;
-using System.Collections.Generic;
-using System.Web.Http;
-
-namespace SOLID_PRINCIPLE.API.Controllers
+﻿namespace SOLID_PRINCIPLE.API.Controllers
 {
+    using DATA;
+    using SERVICEs;
+    using System.Collections.Generic;
+    using System.Web.Http;
     public class ProductController : ApiController
     {
         private IProductService _service;

@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace SOLID_PRINCIPLE.WEB
+﻿namespace SOLID_PRINCIPLE.WEB
 {
+    using System.Web.Mvc;
+
     public class FilterConfig
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
