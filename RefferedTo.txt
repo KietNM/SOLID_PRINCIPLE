@@ -22,7 +22,10 @@
 /// For detailed https://docs.microsoft.com/en-us/aspnet/web-api/overview/advanced/dependency-injection
 /// </summary>
 
-
+/// <summary>
+/// 1. Entity Framework Code First Migrations with an existing database.
+/// For detailed https://msdn.microsoft.com/en-us/library/dn579398(v=vs.113).aspx
+/// </summary>
 
 
 
