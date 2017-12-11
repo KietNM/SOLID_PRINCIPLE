@@ -1,23 +1,23 @@
 namespace SOLID_PRINCIPLE.DATA.Migrations
 {
+    using Seed;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SOLID_PRINCIPLE.DATA.StoreEntities>
+    internal sealed class Configuration : DbMigrationsConfiguration<StoreEntities>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SOLID_PRINCIPLE.DATA.StoreEntities context)
+        protected override void Seed(StoreEntities context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data.
+            DbSeed.GetCategories().ForEach(c => context.Categories.Add(c));
+            DbSeed.GetGadgets().ForEach(c => context.Gadgets.Add(c));
+            context.Commit();
         }
     }
 }

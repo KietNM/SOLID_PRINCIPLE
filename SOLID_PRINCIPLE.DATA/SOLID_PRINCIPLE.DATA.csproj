@@ -60,8 +60,19 @@
     <Compile Include="Infrastructure\IUnitOfWork.cs" />
     <Compile Include="Infrastructure\RepositoryBase.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Migrations\201712110651253_InitialCreate.cs" />
+    <Compile Include="Migrations\201712110651253_InitialCreate.Designer.cs">
+      <DependentUpon>201712110651253_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712110655086_TheFirstMigrationForCreate.cs" />
+    <Compile Include="Migrations\201712110655086_TheFirstMigrationForCreate.Designer.cs">
+      <DependentUpon>201712110655086_TheFirstMigrationForCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712110659030_TheSecondMigration.cs" />
+    <Compile Include="Migrations\201712110659030_TheSecondMigration.Designer.cs">
+      <DependentUpon>201712110659030_TheSecondMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Migrations\MigrationsConfiguration.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Gadget.cs" />
     <Compile Include="Product.cs">
@@ -115,6 +126,17 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201712110651253_InitialCreate.resx">
+      <DependentUpon>201712110651253_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712110655086_TheFirstMigrationForCreate.resx">
+      <DependentUpon>201712110655086_TheFirstMigrationForCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712110659030_TheSecondMigration.resx">
+      <DependentUpon>201712110659030_TheSecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
