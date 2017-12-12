@@ -1,10 +1,8 @@
 ﻿@model IEnumerable<SOLID_PRINCIPLE.CORE.ViewModels.CategoryViewModel>
-
 @{
     ViewBag.Title = "Store";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <p>
 
 </p>
@@ -14,8 +12,7 @@
         @foreach (var item in Model)
         {
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    @*@Html.DisplayFor(modelItem => item.Name)*@
+                <div class="panel-heading">               
                     @Html.ActionLink("View all " + item.Name, "Index", new { category = item.Name }, new { @class = "pull-right" })
                     @using (Html.BeginForm("Filter", "Home", new { category = item.Name }, FormMethod.Post, new { @class = "navbar-form" }))
                     {

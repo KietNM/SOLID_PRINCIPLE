@@ -12,6 +12,8 @@ namespace SOLID_PRINCIPLE.DATA
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class AdventureWorks2012Entities : DbContext
     {
@@ -22,15 +24,80 @@ namespace SOLID_PRINCIPLE.DATA
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            //Configure default schema
-            modelBuilder.HasDefaultSchema("Production");
-
-            //Map entity to table
-            modelBuilder.Entity<Product>().ToTable("Product", "Production");
-
             throw new UnintentionalCodeFirstException();
         }
     
         public virtual DbSet<Product> Products { get; set; }
+    
+        public virtual ObjectResult<GetProductionsDynamicSortColumn_Result> GetProductionsDynamicSortColumn(string productName, string productNumber, Nullable<int> pageNum, Nullable<int> pageSize, string sortColumnName, Nullable<int> sortType)
+        {
+            var productNameParameter = productName != null ?
+                new ObjectParameter("productName", productName) :
+                new ObjectParameter("productName", typeof(string));
+    
+            var productNumberParameter = productNumber != null ?
+                new ObjectParameter("productNumber", productNumber) :
+                new ObjectParameter("productNumber", typeof(string));
+    
+            var pageNumParameter = pageNum.HasValue ?
+                new ObjectParameter("pageNum", pageNum) :
+                new ObjectParameter("pageNum", typeof(int));
+    
+            var pageSizeParameter = pageSize.HasValue ?
+                new ObjectParameter("pageSize", pageSize) :
+                new ObjectParameter("pageSize", typeof(int));
+    
+            var sortColumnNameParameter = sortColumnName != null ?
+                new ObjectParameter("sortColumnName", sortColumnName) :
+                new ObjectParameter("sortColumnName", typeof(string));
+    
+            var sortTypeParameter = sortType.HasValue ?
+                new ObjectParameter("sortType", sortType) :
+                new ObjectParameter("sortType", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetProductionsDynamicSortColumn_Result>("GetProductionsDynamicSortColumn", productNameParameter, productNumberParameter, pageNumParameter, pageSizeParameter, sortColumnNameParameter, sortTypeParameter);
+        }
+    
+        public virtual ObjectResult<GetProductionsPagedDatabyCTE_Result> GetProductionsPagedDatabyCTE(string productName, string productNumber, Nullable<int> pageNum, Nullable<int> pageSize)
+        {
+            var productNameParameter = productName != null ?
+                new ObjectParameter("productName", productName) :
+                new ObjectParameter("productName", typeof(string));
+    
+            var productNumberParameter = productNumber != null ?
+                new ObjectParameter("productNumber", productNumber) :
+                new ObjectParameter("productNumber", typeof(string));
+    
+            var pageNumParameter = pageNum.HasValue ?
+                new ObjectParameter("pageNum", pageNum) :
+                new ObjectParameter("pageNum", typeof(int));
+    
+            var pageSizeParameter = pageSize.HasValue ?
+                new ObjectParameter("pageSize", pageSize) :
+                new ObjectParameter("pageSize", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetProductionsPagedDatabyCTE_Result>("GetProductionsPagedDatabyCTE", productNameParameter, productNumberParameter, pageNumParameter, pageSizeParameter);
+        }
+    
+        public virtual ObjectResult<GetProductionsPagedDatabyFetch_Result> GetProductionsPagedDatabyFetch(string productName, string productNumber, Nullable<int> pageNum, Nullable<int> pageSize)
+        {
+            var productNameParameter = productName != null ?
+                new ObjectParameter("productName", productName) :
+                new ObjectParameter("productName", typeof(string));
+    
+            var productNumberParameter = productNumber != null ?
+                new ObjectParameter("productNumber", productNumber) :
+                new ObjectParameter("productNumber", typeof(string));
+    
+            var pageNumParameter = pageNum.HasValue ?
+                new ObjectParameter("pageNum", pageNum) :
+                new ObjectParameter("pageNum", typeof(int));
+    
+            var pageSizeParameter = pageSize.HasValue ?
+                new ObjectParameter("pageSize", pageSize) :
+                new ObjectParameter("pageSize", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetProductionsPagedDatabyFetch_Result>("GetProductionsPagedDatabyFetch", productNameParameter, productNumberParameter, pageNumParameter, pageSizeParameter);
+        }
     }
 }

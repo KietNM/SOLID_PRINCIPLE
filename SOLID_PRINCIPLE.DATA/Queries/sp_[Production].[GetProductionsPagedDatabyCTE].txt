@@ -1,0 +1,47 @@
+﻿USE [AdventureWorks2012]
+GO
+
+/****** Object:  StoredProcedure [Production].[GetProductionsPagedDatabyCTE]    Script Date: 12/12/2017 4:32:18 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- DROP PROCEDURE Production].[GetProductionsPagedDatabyCTE;
+-- 2017/12/12 KietNM Create.
+-- =============================================
+
+CREATE PROCEDURE [Production].[GetProductionsPagedDatabyCTE]
+(@productName   NVARCHAR(50),
+ @productNumber NVARCHAR(25),
+ @pageNum       INT,
+ @pageSize      INT
+)
+AS
+     BEGIN
+         WITH PagingCTE
+              AS (
+              SELECT pr.ProductID,
+                     pr.Name AS ProductName,
+                     pr.ProductNumber AS ProductNumber,
+                     pc.Name AS ProductSubcategoryName,
+                     pu.UnitMeasureCode AS UnitMeasureCode,
+                     pu.Name AS UnitMeasureName,
+                     pm.Name AS ProductModelName,
+                     ROW_NUMBER() OVER(ORDER BY pr.Name) AS RowNumber
+              FROM Production.Product pr WITH (NOLOCK)
+                   LEFT JOIN Production.ProductCategory pc WITH (NOLOCK) ON pr.ProductSubcategoryID = pc.ProductCategoryID
+                   LEFT JOIN Production.UnitMeasure pu WITH (NOLOCK) ON pr.SizeUnitMeasureCode = pu.UnitMeasureCode
+                   LEFT JOIN Production.ProductModel pm WITH (NOLOCK) ON pr.ProductModelID = pm.ProductModelID
+              WHERE(@productName IS NULL
+                    OR pr.Name LIKE N'%'+@productName+'%')
+                   AND (@productNumber IS NULL
+                        OR pr.ProductNumber LIKE N'%'+@productNumber+'%'))
+              SELECT *
+              FROM PagingCTE
+              WHERE RowNumber BETWEEN(@pageNum - 1) * @pageSize + 1 AND @pageNum * @pageSize;
+     END;
+	--EXEC Production.GetProductionsPagedDatabyCTE  @productName ='',  @productNumber='AR-', @pageNum = 1, @pageSize = 3
+	--EXEC Production.GetProductionsPagedDatabyCTE  @productName =NULL,  @productNumber=NULL, @pageNum = 1, @pageSize = 3
+GO

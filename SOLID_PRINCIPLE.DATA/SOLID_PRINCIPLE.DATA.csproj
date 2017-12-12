@@ -53,6 +53,15 @@
   <ItemGroup>
     <Compile Include="Configuration\CategoryConfiguration.cs" />
     <Compile Include="Configuration\GadgetConfiguration.cs" />
+    <Compile Include="GetProductionsDynamicSortColumn_Result.cs">
+      <DependentUpon>ProductionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProductionsPagedDatabyCTE_Result.cs">
+      <DependentUpon>ProductionModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetProductionsPagedDatabyFetch_Result.cs">
+      <DependentUpon>ProductionModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\DbFactory.cs" />
     <Compile Include="Infrastructure\IDbFactory.cs" />
     <Compile Include="Infrastructure\IDisposable.cs" />
@@ -98,11 +107,13 @@
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Queries\sp_[Production].[GetProductionsPagedDatabyFetch].txt" />
     <None Include="App.Config" />
     <None Include="packages.config" />
     <None Include="ProductionModel.edmx.diagram">
       <DependentUpon>ProductionModel.edmx</DependentUpon>
     </None>
+    <Content Include="Queries\sp_[Production].[GetProductionsDynamicSortColumn].txt" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ProductionModel.Context.tt">
@@ -115,6 +126,7 @@
       <DependentUpon>ProductionModel.edmx</DependentUpon>
       <LastGenOutput>ProductionModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Queries\sp_[Production].[GetProductionsPagedDatabyCTE].txt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -124,6 +136,7 @@
       <DependentUpon>201712110759247_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

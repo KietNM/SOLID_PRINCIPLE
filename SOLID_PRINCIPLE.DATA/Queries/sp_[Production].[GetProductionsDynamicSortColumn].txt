@@ -1,0 +1,108 @@
+﻿USE [AdventureWorks2012]
+GO
+
+/****** Object:  StoredProcedure [Production].[GetProductionsDynamicSortColumn]    Script Date: 12/12/2017 4:26:56 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- DROP PROCEDURE Production.GetProductionsDynamicSortColumn;
+-- 2017/12/12 KietNM Create.
+-- =============================================
+
+CREATE PROCEDURE [Production].[GetProductionsDynamicSortColumn]
+(@productName    NVARCHAR(50),
+ @productNumber  NVARCHAR(25),
+ @pageNum        INT,
+ @pageSize       INT,
+ @sortColumnName VARCHAR(50),
+ @sortType       INT
+)
+AS
+     BEGIN
+         WITH PagingCTE
+              AS (
+              SELECT pr.ProductID,
+                     pr.Name AS ProductName,
+                     pr.ProductNumber AS ProductNumber,
+                     pc.Name AS ProductSubcategoryName,
+                     pu.UnitMeasureCode AS UnitMeasureCode,
+                     pu.Name AS UnitMeasureName,
+                     pm.Name AS ProductModelName,
+                     ROW_NUMBER() OVER(ORDER BY CASE
+                                                    WHEN @sortColumnName = 'ProductName'
+                                                         AND isnull(@sortType, 1) = 1
+                                                    THEN pr.Name
+                                                END DESC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'ProductName'
+                                                         AND isnull(@sortType, 1) = 0
+                                                    THEN pr.Name
+                                                END ASC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'ProductNumber'
+                                                         AND isnull(@sortType, 1) = 1
+                                                    THEN pr.ProductNumber
+                                                END DESC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'ProductNumber'
+                                                         AND isnull(@sortType, 1) = 0
+                                                    THEN pr.ProductNumber
+                                                END ASC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'ProductSubcategoryName'
+                                                         AND isnull(@sortType, 1) = 1
+                                                    THEN pc.Name
+                                                END DESC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'ProductSubcategoryName'
+                                                         AND isnull(@sortType, 1) = 0
+                                                    THEN pc.Name
+                                                END ASC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'UnitMeasureCode'
+                                                         AND isnull(@sortType, 1) = 1
+                                                    THEN pu.UnitMeasureCode
+                                                END DESC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'UnitMeasureCode'
+                                                         AND isnull(@sortType, 1) = 0
+                                                    THEN pu.UnitMeasureCode
+                                                END ASC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'UnitMeasureName'
+                                                         AND isnull(@sortType, 1) = 1
+                                                    THEN pu.Name
+                                                END DESC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'UnitMeasureName'
+                                                         AND isnull(@sortType, 1) = 0
+                                                    THEN pu.Name
+                                                END ASC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'ProductModelName'
+                                                         AND isnull(@sortType, 1) = 1
+                                                    THEN pm.Name
+                                                END DESC,
+                                                CASE
+                                                    WHEN @sortColumnName = 'ProductModelName'
+                                                         AND isnull(@sortType, 1) = 0
+                                                    THEN pm.Name
+                                                END ASC) AS RowNumber
+              FROM Production.Product pr WITH (NOLOCK)
+                   LEFT JOIN Production.ProductCategory pc WITH (NOLOCK) ON pr.ProductSubcategoryID = pc.ProductCategoryID
+                   LEFT JOIN Production.UnitMeasure pu WITH (NOLOCK) ON pr.SizeUnitMeasureCode = pu.UnitMeasureCode
+                   LEFT JOIN Production.ProductModel pm WITH (NOLOCK) ON pr.ProductModelID = pm.ProductModelID
+              WHERE(@productName IS NULL
+                    OR pr.Name LIKE N'%'+@productName+'%')
+                   AND (@productNumber IS NULL
+                        OR pr.ProductNumber LIKE N'%'+@productNumber+'%'))
+              SELECT *
+              FROM PagingCTE
+              WHERE RowNumber BETWEEN(@pageNum - 1) * @pageSize + 1 AND @pageNum * @pageSize;
+     END;
+	--EXEC Production.GetProductionsDynamicSortColumn  @productName ='',  @productNumber='AR-', @pageNum = 1, @pageSize = 3, @sortColumnName ='',  @sortType =''
+	--EXEC Production.GetProductionsDynamicSortColumn  @productName =NULL,  @productNumber=NULL, @pageNum = 1, @pageSize = 300, @sortColumnName ='ProductModelName',  @sortType =1
+GO
