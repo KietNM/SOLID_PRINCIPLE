@@ -25,7 +25,7 @@
             builder.RegisterControllers(Assembly.GetExecutingAssembly());
             builder.RegisterType<UnitOfWork>().As<IUnitOfWork>().InstancePerRequest();
             builder.RegisterType<DbFactory>().As<IDbFactory>().InstancePerRequest();
-
+      
             // Repositories
             builder.RegisterAssemblyTypes(typeof(GadgetRepository).Assembly)
                 .Where(t => t.Name.EndsWith("Repository"))
