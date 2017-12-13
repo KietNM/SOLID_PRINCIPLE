@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq.Expressions;
-
-namespace SOLID_PRINCIPLE.DATA.Infrastructure
+﻿namespace SOLID_PRINCIPLE.DATA.Infrastructure
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq.Expressions;
     public interface IRepository<T> where T:class
     {
         // Marks an entity as new

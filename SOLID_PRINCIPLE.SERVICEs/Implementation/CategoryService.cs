@@ -1,12 +1,11 @@
-﻿using SOLID_PRINCIPLE.DATA.Infrastructure;
-using SOLID_PRINCIPLE.DATA.Models;
-using SOLID_PRINCIPLE.DATA.Repositories;
-using SOLID_PRINCIPLE.SERVICEs.Interface;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace SOLID_PRINCIPLE.SERVICEs.Implementation
+﻿namespace SOLID_PRINCIPLE.SERVICEs.Implementation
 {
+    using DATA.Infrastructure;
+    using DATA.Models;
+    using DATA.Repositories;
+    using Interface;
+    using System.Collections.Generic;
+    using System.Linq;
     public class CategoryService : ICategoryService
     {
         private readonly ICategoryRepository categorysRepository;

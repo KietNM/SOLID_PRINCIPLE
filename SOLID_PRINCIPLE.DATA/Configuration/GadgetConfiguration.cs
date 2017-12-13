@@ -1,8 +1,7 @@
-﻿using SOLID_PRINCIPLE.DATA.Models;
-using System.Data.Entity.ModelConfiguration;
-
-namespace SOLID_PRINCIPLE.DATA.Configuration
+﻿namespace SOLID_PRINCIPLE.DATA.Configuration
 {
+    using Models;
+    using System.Data.Entity.ModelConfiguration;
     public class GadgetConfiguration : EntityTypeConfiguration<Gadget>
     {
         public GadgetConfiguration()

@@ -1,4 +1,4 @@
-﻿namespace SOLID_PRINCIPLE.WEB.Mappings
+﻿namespace SOLID_PRINCIPLE.CORE.Mappings
 {
     using AutoMapper;
     public class AutoMapperConfiguration

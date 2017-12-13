@@ -1,7 +1,7 @@
-﻿namespace SOLID_PRINCIPLE.WEB.Mappings
+﻿namespace SOLID_PRINCIPLE.CORE.Mappings
 {
     using AutoMapper;
-    using CORE.ViewModels;
+    using ViewModels;
     using DATA.Models;
 
     public class ViewModelToDomainMappingProfile : Profile

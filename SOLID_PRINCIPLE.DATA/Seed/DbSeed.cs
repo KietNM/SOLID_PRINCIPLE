@@ -1,8 +1,8 @@
-﻿using SOLID_PRINCIPLE.DATA.Models;
-using System.Collections.Generic;
-
-namespace SOLID_PRINCIPLE.DATA.Seed
+﻿namespace SOLID_PRINCIPLE.DATA.Seed
 {
+    using Models;
+    using System.Collections.Generic;
+
     public class DbSeed
     {
         internal static List<Category> GetCategories()

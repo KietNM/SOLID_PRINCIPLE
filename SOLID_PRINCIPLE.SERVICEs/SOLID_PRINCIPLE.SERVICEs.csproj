@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,14 +51,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementation\CategoryService.cs" />
+    <Compile Include="Implementation\FileService.cs" />
     <Compile Include="Implementation\GadgetService.cs" />
     <Compile Include="Interface\ICategoryService.cs" />
+    <Compile Include="Interface\IFileService.cs" />
     <Compile Include="Interface\IGadgetService.cs" />
     <Compile Include="Interface\IProductService.cs" />
     <Compile Include="Implementation\ProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SOLID_PRINCIPLE.CORE\SOLID_PRINCIPLE.CORE.csproj">
+      <Project>{CFC558EB-E8F3-496A-8C8B-189E8659D1FB}</Project>
+      <Name>SOLID_PRINCIPLE.CORE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SOLID_PRINCIPLE.DATA\SOLID_PRINCIPLE.DATA.csproj">
       <Project>{9ab333b8-c80c-43ff-baa9-8a8e84ee056b}</Project>
       <Name>SOLID_PRINCIPLE.DATA</Name>

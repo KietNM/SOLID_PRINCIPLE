@@ -1,8 +1,7 @@
-﻿using SOLID_PRINCIPLE.DATA;
-using System.Collections.Generic;
-
-namespace SOLID_PRINCIPLE.SERVICEs
+﻿namespace SOLID_PRINCIPLE.SERVICEs
 {
+    using DATA;
+    using System.Collections.Generic;
     public interface IProductService
     {
         IEnumerable<Product> GetAll();

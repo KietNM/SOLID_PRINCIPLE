@@ -177,9 +177,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mappings\AutoMapperConfiguration.cs" />
-    <Compile Include="Mappings\DomainToViewModelMappingProfile.cs" />
-    <Compile Include="Mappings\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +186,12 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\Alldaymall.jpg" />
+    <Content Include="images\asus-memo.jpg" />
+    <Content Include="images\dragon-touch.jpg" />
+    <Content Include="images\neutab.jpg" />
+    <Content Include="images\prontotec.jpg" />
+    <Content Include="images\samsung-galaxy.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">

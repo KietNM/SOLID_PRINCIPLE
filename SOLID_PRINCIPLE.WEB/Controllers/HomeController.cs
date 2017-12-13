@@ -11,11 +11,13 @@
     {
         private readonly ICategoryService categoryService;
         private readonly IGadgetService gadgetService;
+        private readonly IFileService fileService;
 
-        public HomeController(ICategoryService categoryService, IGadgetService gadgetService)
+        public HomeController(ICategoryService categoryService, IGadgetService gadgetService, IFileService fileService)
         {
             this.categoryService = categoryService;
             this.gadgetService = gadgetService;
+            this.fileService = fileService;
         }
 
         // GET: Home

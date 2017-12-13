@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace SOLID_PRINCIPLE.DATA.Infrastructure
+﻿namespace SOLID_PRINCIPLE.DATA.Infrastructure
 {
+    using System;
     public class Disposable : IDisposable
     {
         private bool isDisposed;

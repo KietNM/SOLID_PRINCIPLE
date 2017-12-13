@@ -2,9 +2,9 @@
 {
     using Autofac;
     using Autofac.Integration.Mvc;
+    using CORE.Mappings;
     using DATA.Infrastructure;
     using DATA.Repositories;
-    using Mappings;
     using SERVICEs.Implementation;
     using System.Linq;
     using System.Reflection;

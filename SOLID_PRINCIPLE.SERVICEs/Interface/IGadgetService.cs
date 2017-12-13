@@ -1,8 +1,7 @@
-﻿using SOLID_PRINCIPLE.DATA.Models;
-using System.Collections.Generic;
-
-namespace SOLID_PRINCIPLE.SERVICEs.Interface
+﻿namespace SOLID_PRINCIPLE.SERVICEs.Interface
 {
+    using DATA.Models;
+    using System.Collections.Generic;
     public interface IGadgetService
     {
         IEnumerable<Gadget> GetGadgets();

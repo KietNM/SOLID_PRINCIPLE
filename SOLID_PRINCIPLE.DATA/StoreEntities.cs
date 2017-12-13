@@ -1,10 +1,10 @@
-﻿using SOLID_PRINCIPLE.DATA.Configuration;
-using SOLID_PRINCIPLE.DATA.Models;
-using System;
-using System.Data.Entity;
-using System.Data.Entity.Validation;
-namespace SOLID_PRINCIPLE.DATA
+﻿namespace SOLID_PRINCIPLE.DATA
 {
+    using Configuration;
+    using Models;
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Validation;
     public class StoreEntities : DbContext
     {
         public StoreEntities() : base("StoreEntities")

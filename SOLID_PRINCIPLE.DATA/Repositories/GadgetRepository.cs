@@ -1,8 +1,7 @@
-﻿using SOLID_PRINCIPLE.DATA.Infrastructure;
-using SOLID_PRINCIPLE.DATA.Models;
-
-namespace SOLID_PRINCIPLE.DATA.Repositories
+﻿namespace SOLID_PRINCIPLE.DATA.Repositories
 {
+    using Infrastructure;
+    using Models;
     public class GadgetRepository : RepositoryBase<Gadget>, IGadgetRepository
     {
         public GadgetRepository(IDbFactory dbFactory)

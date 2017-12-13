@@ -1,10 +1,9 @@
-﻿using SOLID_PRINCIPLE.DATA;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace SOLID_PRINCIPLE.SERVICEs
+﻿namespace SOLID_PRINCIPLE.SERVICEs
 {
+    using DATA;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     public class ProductService : IProductService
     {
         private AdventureWorks2012Entities db = new AdventureWorks2012Entities();

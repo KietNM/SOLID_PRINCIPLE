@@ -1,10 +1,9 @@
-﻿using SOLID_PRINCIPLE.DATA.Infrastructure;
-using SOLID_PRINCIPLE.DATA.Models;
-using System;
-using System.Linq;
-
-namespace SOLID_PRINCIPLE.DATA.Repositories
+﻿namespace SOLID_PRINCIPLE.DATA.Repositories
 {
+    using Infrastructure;
+    using Models;
+    using System;
+    using System.Linq;
     public class CategoryRepository : RepositoryBase<Category>, ICategoryRepository
     {
         public CategoryRepository(IDbFactory dbFactory)

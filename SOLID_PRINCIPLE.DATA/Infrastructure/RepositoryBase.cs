@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Linq.Expressions;
-
-namespace SOLID_PRINCIPLE.DATA.Infrastructure
+﻿namespace SOLID_PRINCIPLE.DATA.Infrastructure
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using System.Linq.Expressions;
+    using System.Reflection;
+
     public abstract class RepositoryBase<T> where T : class
     {
         #region Properties
@@ -36,13 +37,24 @@ namespace SOLID_PRINCIPLE.DATA.Infrastructure
 
         public virtual void Add(T entity)
         {
+           // TrySetProperty(entity, "DateCreated", DateTime.Now);
+           // TrySetProperty(entity, "DateUpdated", DateTime.Now);
             dbSet.Add(entity);
         }
 
         public virtual void Update(T entity)
         {
+            // TrySetProperty(entity, "DateUpdated", DateTime.Now);
             dbSet.Attach(entity);
             dataContext.Entry(entity).State = EntityState.Modified;
+            // dataContext.Entry(entity).Property("DateCreated").IsModified = false;
+        }
+
+        private void TrySetProperty(object obj, string property, object value)
+        {
+            var prop = obj.GetType().GetProperty(property, BindingFlags.Public | BindingFlags.Instance);
+            if (prop != null && prop.CanWrite)
+                prop.SetValue(obj, value, null);
         }
 
         public virtual void Delete(T entity)
