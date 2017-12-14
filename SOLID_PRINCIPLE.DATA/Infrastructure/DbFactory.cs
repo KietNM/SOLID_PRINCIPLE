@@ -6,7 +6,7 @@
 
         public StoreEntities Init()
         {
-            return dbContext ?? (dbContext = new StoreEntities());
+            return dbContext ?? (dbContext = StoreEntities.Create());
         }
 
         protected override void DisposeCore()
