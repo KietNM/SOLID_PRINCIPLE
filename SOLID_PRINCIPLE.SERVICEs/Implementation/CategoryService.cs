@@ -42,7 +42,6 @@
         public void CreateCategory(Category category)
         {
             categorysRepository.Add(category);
-            unitOfWork.Commit();
         }
 
         public void SaveCategory()

@@ -1,6 +1,6 @@
 ﻿namespace SOLID_PRINCIPLE.DATA.Models
 {
-    public   class Gadget
+    public class Gadget
     {
         public int GadgetID { get; set; }
         public string Name { get; set; }

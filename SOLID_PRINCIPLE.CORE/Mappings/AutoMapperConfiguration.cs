@@ -8,6 +8,7 @@
             Mapper.Initialize(x =>
             {
                 x.AddProfile<DomainToViewModelMappingProfile>();
+                x.AddProfile<CodeFirstDomainToViewModelMappingProfile>();
                 x.AddProfile<ViewModelToDomainMappingProfile>();
             });
         }

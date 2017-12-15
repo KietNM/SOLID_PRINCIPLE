@@ -10,8 +10,9 @@
         }
         public StoreEntities DbContext
         {
-            get { return DbContext ?? (dbContext = dbFactory.Init()); }
+            get { return dbContext ?? (dbContext = dbFactory.Init()); }
         }
+
         public void Commit()
         {
             DbContext.Commit();

@@ -41,8 +41,7 @@
 
         public void CreateGadget(Gadget gadget)
         {
-            gadgetsRepository.Add(gadget);
-            unitOfWork.Commit();
+            gadgetsRepository.Add(gadget);          
         }
 
         public void SaveGadget()

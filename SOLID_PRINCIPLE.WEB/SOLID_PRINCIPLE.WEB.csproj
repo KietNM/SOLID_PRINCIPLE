@@ -174,6 +174,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -229,6 +230,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -250,6 +252,10 @@
     <ProjectReference Include="..\SOLID_PRINCIPLE.SERVICEs\SOLID_PRINCIPLE.SERVICEs.csproj">
       <Project>{2502CD56-51A9-4697-9D25-CDE70C6A8063}</Project>
       <Name>SOLID_PRINCIPLE.SERVICEs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SOLID_PRINCIPLE.SHAREDLIBs\SOLID_PRINCIPLE.SHAREDLIBs.csproj">
+      <Project>{0b6d8ff9-5545-4a49-8e50-ed716aa96bcd}</Project>
+      <Name>SOLID_PRINCIPLE.SHAREDLIBs</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

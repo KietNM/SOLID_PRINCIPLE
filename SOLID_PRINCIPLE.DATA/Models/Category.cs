@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace SOLID_PRINCIPLE.DATA.Models
+﻿namespace SOLID_PRINCIPLE.DATA.Models
 {
+    using System;
+    using System.Collections.Generic;
     public class Category
     {
         public int CategoryID { get; set; }

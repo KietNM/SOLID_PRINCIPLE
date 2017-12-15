@@ -13,7 +13,7 @@
         public DomainToViewModelMappingProfile()
         {
            CreateMap<Category, CategoryViewModel>();
-           CreateMap<Gadget, GadgetViewModel>();
+           CreateMap<Gadget, GadgetViewModel>();           
         }
     }
 }

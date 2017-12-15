@@ -38,13 +38,13 @@
 /// </summary>
 
 /// <summary>
-/// 1. Data Paging by OFFSETÖFECTCH and CTE ñ Sql Server.
+/// 1. Data Paging by OFFSETÅEECTCH and CTE ÅESql Server.
 /// 2. Data paging by CTE with dynamic Sort column.
 /// For detailed http://sqlhints.com/2015/09/05/data-paging-by-offset-fectch-and-cte-sql-server/
 /// </summary>
 
 /// <summary>
-/// 1. Data Paging by OFFSETÖFECTCH and CTE ñ Sql Server.
+/// 1. Data Paging by OFFSETÅEECTCH and CTE ÅESql Server.
 /// 2. Data paging by CTE with dynamic Sort column.
 /// For detailed https://sqlperformance.com/2015/01/t-sql-queries/pagination-with-offset-fetch
 /// </summary>
